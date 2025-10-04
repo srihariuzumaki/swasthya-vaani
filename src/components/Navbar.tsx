@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +19,7 @@ const Navbar = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="sticky top-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border">
+      <nav className="sticky top-0 z-50 backdrop-blur-lg bg-background/95 dark:bg-background/95 border-b border-border">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -26,40 +27,44 @@ const Navbar = () => {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                 <span className="text-white font-bold text-xl">स्व</span>
               </div>
-              <span className="font-serif font-bold text-xl">Swasthya Vaani</span>
+              <span className="font-serif font-bold text-xl text-foreground">Swasthya Vaani</span>
             </a>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
+              <a href="#features" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
                 Features
               </a>
-              <a href="#benefits" className="text-sm font-medium hover:text-primary transition-colors">
+              <a href="#benefits" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
                 Benefits
               </a>
-              <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
+              <a href="#testimonials" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
                 Testimonials
               </a>
-              <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
+              <a href="#about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
                 About
               </a>
             </div>
 
-            {/* CTA Button */}
-            <div className="hidden md:block">
+            {/* Right side buttons */}
+            <div className="hidden md:flex items-center gap-4">
+              <ThemeToggle />
               <Button size="lg" className="rounded-full font-semibold">
                 Download for Free
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
+            <div className="md:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -67,28 +72,28 @@ const Navbar = () => {
             <div className="md:hidden py-4 space-y-4 border-t border-border">
               <a
                 href="#features"
-                className="block text-sm font-medium hover:text-primary transition-colors"
+                className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Features
               </a>
               <a
                 href="#benefits"
-                className="block text-sm font-medium hover:text-primary transition-colors"
+                className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Benefits
               </a>
               <a
                 href="#testimonials"
-                className="block text-sm font-medium hover:text-primary transition-colors"
+                className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Testimonials
               </a>
               <a
                 href="#about"
-                className="block text-sm font-medium hover:text-primary transition-colors"
+                className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About

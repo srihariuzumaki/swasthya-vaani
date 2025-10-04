@@ -45,17 +45,17 @@ All colors MUST be HSL.
     --health-green-light: 142 76% 36%;
     --trust-teal: 174 72% 56%;
     --warm-cream: 45 20% 96%;
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(174 72% 56%) 100%);
     --gradient-secondary: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(142 76% 36%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(45 20% 96%) 0%, hsl(210 40% 98%) 100%);
-    
+
     /* Shadows */
     --shadow-soft: 0 2px 8px rgba(33, 150, 243, 0.08);
     --shadow-medium: 0 4px 20px rgba(33, 150, 243, 0.12);
     --shadow-large: 0 8px 32px rgba(33, 150, 243, 0.16);
-    
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -88,6 +88,24 @@ All colors MUST be HSL.
     --border: 217 33% 17%;
     --input: 217 33% 17%;
     --ring: 217 91% 60%;
+
+    /* Healthcare theme colors for dark mode */
+    --medical-blue: 217 91% 60%;
+    --medical-blue-dark: 221 83% 53%;
+    --health-green: 160 84% 39%;
+    --health-green-light: 142 76% 36%;
+    --trust-teal: 174 72% 56%;
+    --warm-cream: 210 50% 6%;
+
+    /* Gradients for dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(174 72% 56%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(142 76% 36%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(210 50% 6%) 0%, hsl(210 50% 8%) 100%);
+
+    /* Shadows for dark mode */
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -100,9 +118,25 @@ All colors MUST be HSL.
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "liga" 1, "calt" 1;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif;
+  }
+
+  /* Ensure navbar properly inherits theme colors */
+  nav {
+    @apply bg-background text-foreground;
+  }
+
+  /* Force dark mode for navbar when dark class is present */
+  .dark nav {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
 
@@ -110,39 +144,45 @@ All colors MUST be HSL.
   .text-gradient-primary {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(var(--trust-teal))];
   }
-  
+
   .text-gradient-secondary {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-[hsl(var(--health-green-light))];
   }
-  
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   .animate-pulse-soft {
     animation: pulse-soft 3s ease-in-out infinite;
   }
-  
+
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-20px);
     }
   }
-  
+
   @keyframes pulse-soft {
-    0%, 100% {
+
+    0%,
+    100% {
       opacity: 1;
       transform: scale(1);
     }
+
     50% {
       opacity: 0.8;
       transform: scale(1.05);
     }
   }
-  
+
   .curve-text {
     transform-origin: center;
   }
