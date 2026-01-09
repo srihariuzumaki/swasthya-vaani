@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-blue-50/30 to-green-50/30" />
-      
+
       {/* Animated Background Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse-soft" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '1s' }} />
@@ -54,8 +54,10 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all">
-                Download for Android
+              <Button asChild size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all">
+                <a href="/app-debug.apk" download="swasthya-vaani.apk">
+                  Download for Android
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 rounded-full font-semibold">
                 Watch Demo
